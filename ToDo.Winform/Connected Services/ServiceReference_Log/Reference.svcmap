@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="606648fc-8d34-41d4-b650-92ff5de60a0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55511/Service_Log.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service_Log.disco" MetadataType="Disco" ID="6ed13918-69d5-418e-adcb-dc1e6437804e" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?disco" />
+    <MetadataFile FileName="Service_Log.xsd" MetadataType="Schema" ID="f8fcb77c-fe1e-4c40-a1a0-505689a7b6f8" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service_Log1.xsd" MetadataType="Schema" ID="66fd25b8-c448-4a2e-8947-707f8fc25b5a" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service_Log2.xsd" MetadataType="Schema" ID="3306c933-1925-441a-8728-77a8e8791d91" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service_Log3.xsd" MetadataType="Schema" ID="82fcb610-afd9-4843-9aad-006bec1c4efe" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service_Log.wsdl" MetadataType="Wsdl" ID="9e94c0d9-06f3-44da-8340-0f9480bf10a4" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

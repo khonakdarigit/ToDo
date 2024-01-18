@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="765a17fa-664e-4484-850b-67389a9c642a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55511/Service_TaskManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service_TaskManager.xsd" MetadataType="Schema" ID="63894feb-618e-452d-ad7b-16bc5e631892" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service_TaskManager1.xsd" MetadataType="Schema" ID="294eafc7-d48d-4413-911d-9929a2c56897" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service_TaskManager2.xsd" MetadataType="Schema" ID="e1ad56f7-1f26-4e3e-a9d3-1a02d5d25195" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service_TaskManager3.xsd" MetadataType="Schema" ID="7bc265cd-ed7b-4c6b-916d-b510ffacc565" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service_TaskManager.wsdl" MetadataType="Wsdl" ID="bde6dcdf-b015-4320-8cc4-5908a9da6bc1" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?wsdl" />
+    <MetadataFile FileName="Service_TaskManager.disco" MetadataType="Disco" ID="bf455692-207e-4f0d-b5e9-0e06c752ee43" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
