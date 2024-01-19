@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ToDo.Winform.Models
 {
-    public class AppData
+    public class AppOptions
     {
-        public AppOptions appOptions { get; set; }
-        public ServiceReference_UserManager.User User { get; set; }
+        public bool Option_ShowCompleteTask { get; set; } = true;
     }
 }

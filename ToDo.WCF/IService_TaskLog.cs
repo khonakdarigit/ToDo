@@ -17,5 +17,10 @@ namespace ToDo.WCF
 
         [OperationContract]
         TaskLog AddNewTaskLog(TaskLog taskLog);
+
+        [OperationContract]
+        TaskLog UpdateTaskLog(TaskLog taskLog);
+        [OperationContract]
+        bool DeleteTaskLog(int TaskLogId);
     }
 }

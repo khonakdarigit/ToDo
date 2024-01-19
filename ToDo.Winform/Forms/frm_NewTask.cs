@@ -12,23 +12,51 @@ namespace ToDo.Winform.Forms
 {
     public partial class frm_NewTask : BaseForm
     {
-        public frm_NewTask()
+        private bool EditMode { get; }
+        private ServiceReference_TaskManager.Task CurrnetTask { get; set; }
+
+        public frm_NewTask(bool editMode = false, ServiceReference_TaskManager.Task currnetTask = null)
         {
+            EditMode = editMode;
+            CurrnetTask = currnetTask;
             InitializeComponent();
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            ServiceReference_TaskManager.Service_TaskManagerClient service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient();
-
-            service_TaskManagerClient.AddNewTask(new ServiceReference_TaskManager.Task()
+            if (!EditMode)
             {
-                IsComplete = false,
-                Title = txt_TaskTitle.Text,
-                UserId=Program.appData.User.Id
-            });
-
+                using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
+                {
+                    service_TaskManagerClient.AddNewTask(new ServiceReference_TaskManager.Task()
+                    {
+                        IsComplete = false,
+                        Title = txt_TaskTitle.Text,
+                        UserId = Program.Get_appData().User.Id
+                    });
+                }
+            }
+            else
+            {
+                using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
+                {
+                    CurrnetTask.Title = txt_TaskTitle.Text;
+                    service_TaskManagerClient.UpdateTask(CurrnetTask);
+                }
+            }
             this.Close();
+
+        }
+
+        private void frm_NewTask_Load(object sender, EventArgs e)
+        {
+            if (EditMode)
+            {
+                this.Text = "Edit Task";
+                btn_Save.Text = "Save";
+
+                txt_TaskTitle.Text = CurrnetTask.Title;
+            }
         }
     }
 }

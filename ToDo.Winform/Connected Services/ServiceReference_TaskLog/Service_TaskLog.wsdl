@@ -20,6 +20,18 @@
   <wsdl:message name="IService_TaskLog_AddNewTaskLog_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddNewTaskLogResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_TaskLog_UpdateTaskLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskLog" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskLog_UpdateTaskLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskLog_DeleteTaskLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskLog" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskLog_DeleteTaskLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskLogResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService_TaskLog">
     <wsdl:operation name="GetAllTaskLog">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskLog/GetAllTaskLog" message="tns:IService_TaskLog_GetAllTaskLog_InputMessage" />
@@ -28,6 +40,14 @@
     <wsdl:operation name="AddNewTaskLog">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskLog/AddNewTaskLog" message="tns:IService_TaskLog_AddNewTaskLog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskLog/AddNewTaskLogResponse" message="tns:IService_TaskLog_AddNewTaskLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskLog/UpdateTaskLog" message="tns:IService_TaskLog_UpdateTaskLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskLog/UpdateTaskLogResponse" message="tns:IService_TaskLog_UpdateTaskLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskLog/DeleteTaskLog" message="tns:IService_TaskLog_DeleteTaskLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskLog/DeleteTaskLogResponse" message="tns:IService_TaskLog_DeleteTaskLog_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService_TaskLog" type="tns:IService_TaskLog">
@@ -43,6 +63,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddNewTaskLog">
       <soap:operation soapAction="http://tempuri.org/IService_TaskLog/AddNewTaskLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskLog">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskLog/UpdateTaskLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskLog">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskLog/DeleteTaskLog" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

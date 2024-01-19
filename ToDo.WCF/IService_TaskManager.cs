@@ -17,5 +17,11 @@ namespace ToDo.WCF
 
         [OperationContract]
         List<Task> GetAllTasks(Guid userGuid);
+
+        [OperationContract]
+        Task UpdateTask(Task task);
+
+        [OperationContract]
+        bool DeleteTask(Task task);
     }
 }

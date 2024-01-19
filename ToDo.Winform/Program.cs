@@ -14,14 +14,14 @@ using ToDo.Winform.Toos;
 
 namespace ToDo.Winform
 {
-    internal static class Program
+    internal static class Program 
     {
-        public static string AppData_fileName = "AppData.json";
-        public static string LogData_fileName = "LogData.json";
+        private static string AppData_fileName = "AppData.json";
+        private static string LogData_fileName = "LogData.json";
 
-        public static string WebSite = @"http://tasky.us.to/";
-        public static AppData appData;
-
+        private static string WebSite = @"http://tasky.us.to/";
+        private static AppData appData;
+       
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -44,7 +44,7 @@ namespace ToDo.Winform
                     ServiceReference_UserManager.Service_UserManagerClient service_UserManagerClient = new ServiceReference_UserManager.Service_UserManagerClient();
                     var User = service_UserManagerClient.GetNewUSer();
 
-                    appData = new AppData() { User = User };
+                    appData = new AppData() { User = User, appOptions = new AppOptions() { Option_ShowCompleteTask = true } };
                     new JsonPersister().Serialize<AppData>(AppData_fileName, appData);
                 }
 
@@ -96,5 +96,18 @@ namespace ToDo.Winform
                 LogLevel = LogLevel.Error.ToString(),
             });
         }
+
+        #region Methods
+        internal static void ChangeAppData_Option_ShowCompleteTask(bool @checked)
+        {
+            appData.appOptions.Option_ShowCompleteTask = @checked;
+            new JsonPersister().Serialize<AppData>(AppData_fileName, appData);
+        }
+
+        internal static AppData Get_appData()
+        {
+            return appData;
+        }
+        #endregion
     }
 }

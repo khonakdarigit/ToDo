@@ -95,6 +95,7 @@
             this.Controls.Add(this.txt_TaskLogTitle);
             this.Name = "frm_NewTaskLog";
             this.Text = "New Task Log";
+            this.Load += new System.EventHandler(this.frm_NewTaskLog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -435,6 +435,18 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/AddNewTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/AddNewTaskLogResponse")]
         System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> AddNewTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/UpdateTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/UpdateTaskLogResponse")]
+        ToDo.Winform.ServiceReference_TaskLog.TaskLog UpdateTaskLog(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/UpdateTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/UpdateTaskLogResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> UpdateTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/DeleteTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/DeleteTaskLogResponse")]
+        bool DeleteTaskLog(int TaskLogId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/DeleteTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/DeleteTaskLogResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTaskLogAsync(int TaskLogId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -478,6 +490,22 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
         
         public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> AddNewTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
             return base.Channel.AddNewTaskLogAsync(taskLog);
+        }
+        
+        public ToDo.Winform.ServiceReference_TaskLog.TaskLog UpdateTaskLog(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
+            return base.Channel.UpdateTaskLog(taskLog);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> UpdateTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
+            return base.Channel.UpdateTaskLogAsync(taskLog);
+        }
+        
+        public bool DeleteTaskLog(int TaskLogId) {
+            return base.Channel.DeleteTaskLog(TaskLogId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteTaskLogAsync(int TaskLogId) {
+            return base.Channel.DeleteTaskLogAsync(TaskLogId);
         }
     }
 }

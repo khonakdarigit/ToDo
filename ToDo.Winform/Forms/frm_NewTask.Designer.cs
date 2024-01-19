@@ -60,6 +60,7 @@
             this.Controls.Add(this.txt_TaskTitle);
             this.Name = "frm_NewTask";
             this.Text = "New Task";
+            this.Load += new System.EventHandler(this.frm_NewTask_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

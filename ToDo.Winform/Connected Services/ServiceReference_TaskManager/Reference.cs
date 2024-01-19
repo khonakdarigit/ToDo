@@ -435,6 +435,18 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/GetAllTasks", ReplyAction="http://tempuri.org/IService_TaskManager/GetAllTasksResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task>> GetAllTasksAsync(System.Guid userGuid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/UpdateTask", ReplyAction="http://tempuri.org/IService_TaskManager/UpdateTaskResponse")]
+        ToDo.Winform.ServiceReference_TaskManager.Task UpdateTask(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/UpdateTask", ReplyAction="http://tempuri.org/IService_TaskManager/UpdateTaskResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> UpdateTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/DeleteTask", ReplyAction="http://tempuri.org/IService_TaskManager/DeleteTaskResponse")]
+        bool DeleteTask(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/DeleteTask", ReplyAction="http://tempuri.org/IService_TaskManager/DeleteTaskResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -478,6 +490,22 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task>> GetAllTasksAsync(System.Guid userGuid) {
             return base.Channel.GetAllTasksAsync(userGuid);
+        }
+        
+        public ToDo.Winform.ServiceReference_TaskManager.Task UpdateTask(ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.UpdateTask(task);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> UpdateTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.UpdateTaskAsync(task);
+        }
+        
+        public bool DeleteTask(ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.DeleteTask(task);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.DeleteTaskAsync(task);
         }
     }
 }

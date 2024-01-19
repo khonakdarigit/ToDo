@@ -20,6 +20,18 @@
   <wsdl:message name="IService_TaskManager_GetAllTasks_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTasksResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_TaskManager_UpdateTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTask" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_UpdateTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_DeleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTask" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_DeleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService_TaskManager">
     <wsdl:operation name="AddNewTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/AddNewTask" message="tns:IService_TaskManager_AddNewTask_InputMessage" />
@@ -28,6 +40,14 @@
     <wsdl:operation name="GetAllTasks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/GetAllTasks" message="tns:IService_TaskManager_GetAllTasks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/GetAllTasksResponse" message="tns:IService_TaskManager_GetAllTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/UpdateTask" message="tns:IService_TaskManager_UpdateTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/UpdateTaskResponse" message="tns:IService_TaskManager_UpdateTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/DeleteTask" message="tns:IService_TaskManager_DeleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/DeleteTaskResponse" message="tns:IService_TaskManager_DeleteTask_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService_TaskManager" type="tns:IService_TaskManager">
@@ -43,6 +63,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllTasks">
       <soap:operation soapAction="http://tempuri.org/IService_TaskManager/GetAllTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskManager/UpdateTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskManager/DeleteTask" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

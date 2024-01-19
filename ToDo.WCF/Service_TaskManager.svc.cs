@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -48,9 +49,45 @@ namespace ToDo.WCF
 
         }
 
+        public bool DeleteTask(Task task)
+        {
+            try
+            {
+                var taskLog = db.TaskLogs.Where(c => c.TaskId == task.Id);
+                var removeTask = db.Tasks.FirstOrDefault(c => c.Id == task.Id);
+
+                db.TaskLogs.RemoveRange(taskLog);
+                db.Tasks.Remove(removeTask);
+
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Service_Log service_Log = new Service_Log();
+
+                service_Log.NewLog(new Log
+                {
+                    Date = DateTime.Now,
+                    LogTitle = ex.Message,
+                    LogDetail = ex.StackTrace,
+                    LogLevel = LogLevel.Error.ToString(),
+                });
+            }
+            return false;
+        }
+
         public List<Task> GetAllTasks(Guid userGuid)
         {
-            return db.Tasks.Where(c => c.User.GUID == userGuid).OrderByDescending(c=>c.CreationDate).ToList();
+            return db.Tasks.Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate).ToList();
+        }
+
+        public Task UpdateTask(Task task)
+        {
+            db.Tasks.AddOrUpdate(task);
+            if (db.SaveChanges() == 1)
+            { return task; }
+            return null;
         }
     }
 }

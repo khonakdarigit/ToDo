@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -18,17 +19,30 @@ namespace ToDo.WCF
         {
             taskLog.CreationDate = DateTime.Now;
             db.TaskLogs.Add(taskLog);
-            if (db.SaveChanges() == 1)
-            {
-                return taskLog;
-            }
-            else { return null; }
+            db.SaveChanges();
+
+            return taskLog;
+
         }
 
+        public bool DeleteTaskLog(int TaskLogId)
+        {
+            var RemoveTaskLog=db.TaskLogs.FirstOrDefault(c => c.Id == TaskLogId);
+            db.TaskLogs.Remove(RemoveTaskLog);
+            db.SaveChanges() ;
+            return true;
+        }
 
         public List<TaskLog> GetAllTaskLog(int taskId)
         {
             return db.TaskLogs.Where(c => c.TaskId == taskId).OrderByDescending(c => c.CreationDate).ToList();
+        }
+
+        public TaskLog UpdateTaskLog(TaskLog taskLog)
+        {
+            db.TaskLogs.AddOrUpdate(taskLog);
+            db.SaveChanges();
+            return taskLog;
         }
     }
 }
