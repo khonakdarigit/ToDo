@@ -267,6 +267,7 @@
             this.dt_TaskLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_TaskLog.Size = new System.Drawing.Size(670, 352);
             this.dt_TaskLog.TabIndex = 11;
+            this.dt_TaskLog.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dt_TaskLog_MouseDoubleClick);
             // 
             // Title
             // 

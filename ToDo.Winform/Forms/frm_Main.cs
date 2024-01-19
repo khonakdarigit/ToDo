@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToDo.Winform.Toos;
 
 namespace ToDo.Winform.Forms
 {
@@ -118,7 +119,7 @@ namespace ToDo.Winform.Forms
 
         private void btn_EditTaskLog_Click(object sender, EventArgs e)
         {
-            frm_NewTaskLog frm_NewTaskLog = new frm_NewTaskLog(CurrntTaskLog, true);
+            frm_NewTaskLog frm_NewTaskLog = new frm_NewTaskLog(CurrntTaskLog, FormMode.Update);
             frm_NewTaskLog.ShowDialog();
             FillTaskLog();
         }
@@ -128,7 +129,7 @@ namespace ToDo.Winform.Forms
             using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
             {
                 var description = CurrntTaskLog.Description.Length < 50 ?
-                    CurrntTaskLog.Description : 
+                    CurrntTaskLog.Description :
                     $"{CurrntTaskLog.Description.Take(50).ToString()}...";
 
                 if (MessageBox.Show(
@@ -142,6 +143,14 @@ namespace ToDo.Winform.Forms
                     FillTaskLog();
                 }
 
+            }
+        }
+        private void dt_TaskLog_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (CurrntTaskLog != null)
+            {
+                frm_NewTaskLog frm_NewTaskLog = new frm_NewTaskLog(CurrntTaskLog, FormMode.View);
+                frm_NewTaskLog.ShowDialog();
             }
         }
 
@@ -204,10 +213,11 @@ namespace ToDo.Winform.Forms
             }
         }
 
+
+
+
+
         #endregion
-
-
-
 
 
     }

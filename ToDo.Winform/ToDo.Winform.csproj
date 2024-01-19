@@ -110,6 +110,7 @@
     <Compile Include="Models\AppOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toos\FormMode.cs" />
     <Compile Include="Toos\JsonPersister.cs" />
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>

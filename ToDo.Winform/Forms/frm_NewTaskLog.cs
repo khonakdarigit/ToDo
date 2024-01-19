@@ -7,59 +7,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToDo.Winform.Toos;
 
 namespace ToDo.Winform.Forms
 {
     public partial class frm_NewTaskLog : BaseForm
     {
-        public frm_NewTaskLog(ServiceReference_TaskLog.TaskLog cuurntTaskLog, bool editMode = false)
+        public frm_NewTaskLog(ServiceReference_TaskLog.TaskLog cuurntTaskLog, FormMode formMode = FormMode.New)
         {
-            EditMode = editMode;
+            FormMode = formMode;
             CuurntTaskLog = cuurntTaskLog;
             InitializeComponent();
         }
-
-        private bool EditMode { get; }
+        public FormMode FormMode { get; }
         private ServiceReference_TaskLog.TaskLog CuurntTaskLog { get; set; }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (!EditMode)
+            switch (FormMode)
             {
-                using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
-                {
-                    service_TaskLogClient.AddNewTaskLog(new ServiceReference_TaskLog.TaskLog()
+                case FormMode.None:
+                    break;
+                case FormMode.New:
+                    using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
                     {
-                        Title = txt_TaskLogTitle.Text,
-                        Description = txt_taskLogDescription.Text,
-                        TaskId = CuurntTaskLog.TaskId,
+                        service_TaskLogClient.AddNewTaskLog(new ServiceReference_TaskLog.TaskLog()
+                        {
+                            Title = txt_TaskLogTitle.Text,
+                            Description = txt_taskLogDescription.Text,
+                            TaskId = CuurntTaskLog.TaskId,
 
-                    });
-                    this.Close();
-                }
-            }
-            else
-            {
-                using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
-                {
-                    CuurntTaskLog.Title = txt_TaskLogTitle.Text;
-                    CuurntTaskLog.Description = txt_taskLogDescription.Text;
+                        });
+                        this.Close();
+                    }
+                    break;
+                case FormMode.Update:
+                    using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
+                    {
+                        CuurntTaskLog.Title = txt_TaskLogTitle.Text;
+                        CuurntTaskLog.Description = txt_taskLogDescription.Text;
 
-                    service_TaskLogClient.UpdateTaskLog(CuurntTaskLog); 
-                    this.Close();
-                }
+                        service_TaskLogClient.UpdateTaskLog(CuurntTaskLog);
+                        this.Close();
+                    }
+                    break;
+                case FormMode.View:
+                    break;
+                default:
+                    break;
             }
         }
 
         private void frm_NewTaskLog_Load(object sender, EventArgs e)
         {
-            if (EditMode)
+            switch (FormMode)
             {
-                this.Text = "Edit Task Log";
-                btn_Save.Text = "Save";
+                case FormMode.None:
+                    break;
+                case FormMode.New:
+                    break;
+                case FormMode.Update:
 
-                txt_TaskLogTitle.Text = CuurntTaskLog.Title;
-                txt_taskLogDescription.Text = CuurntTaskLog.Description;
+                    this.Text = "Edit Task Log";
+                    btn_Save.Text = "Save";
+
+                    txt_TaskLogTitle.Text = CuurntTaskLog.Title;
+                    txt_taskLogDescription.Text = CuurntTaskLog.Description;
+
+                    break;
+                case FormMode.View:
+
+                    this.Text = "View Task Log";
+
+                    txt_TaskLogTitle.Text=CuurntTaskLog.Title;
+                    txt_taskLogDescription.Text=CuurntTaskLog.Description;
+
+                    txt_TaskLogTitle.ReadOnly = true;
+                    txt_taskLogDescription.ReadOnly = true;
+
+                    btn_Save.Visible = false;
+
+                    break;
+                default:
+                    break;
             }
         }
     }
