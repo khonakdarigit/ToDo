@@ -4,7 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Tasky.Models.Account;
 using ToDo.WCF.EF;
+using ToDo.WCF.ServiceUser;
 
 namespace ToDo.WCF
 {
@@ -13,19 +15,22 @@ namespace ToDo.WCF
     public class Service_Log : IService_Log
     {
         private Model_TaskyContainer db = new Model_TaskyContainer();
-        public void NewLog(Log log)
+        public void NewLog(ServiceUserLoginModel loginModel, Log log)
         {
-            try
+            if (ServiceUserData.CheckUser(loginModel))
             {
-                log.Date = DateTime.Now;
+                try
+                {
+                    log.Date = DateTime.Now;
 
-                db.Logs.Add(log);
-                db.SaveChangesAsync();
+                    db.Logs.Add(log);
+                    db.SaveChangesAsync();
 
-            }
-            catch (Exception ex)
-            {
-                //SaveToFile(log);
+                }
+                catch (Exception ex)
+                {
+                    //SaveToFile(log);
+                }
             }
         }
     }

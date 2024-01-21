@@ -31,7 +31,7 @@ namespace ToDo.Winform.Forms
                 case FormMode.New:
                     using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
                     {
-                        service_TaskLogClient.AddNewTaskLog(new ServiceReference_TaskLog.TaskLog()
+                        service_TaskLogClient.AddNewTaskLog(ServiceUser.login, new ServiceReference_TaskLog.TaskLog()
                         {
                             Title = txt_TaskLogTitle.Text,
                             Description = txt_taskLogDescription.Text,
@@ -47,7 +47,7 @@ namespace ToDo.Winform.Forms
                         CuurntTaskLog.Title = txt_TaskLogTitle.Text;
                         CuurntTaskLog.Description = txt_taskLogDescription.Text;
 
-                        service_TaskLogClient.UpdateTaskLog(CuurntTaskLog);
+                        service_TaskLogClient.UpdateTaskLog(ServiceUser.login, CuurntTaskLog);
                         this.Close();
                     }
                     break;

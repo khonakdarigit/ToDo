@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Tasky.Models.Account;
 using ToDo.WCF.EF;
 
 namespace ToDo.WCF
@@ -13,15 +14,15 @@ namespace ToDo.WCF
     public interface IService_TaskManager
     {
         [OperationContract]
-        Task AddNewTask(Task task);
+        Task AddNewTask(ServiceUserLoginModel loginUser, Task task);
 
         [OperationContract]
-        List<Task> GetAllTasks(Guid userGuid);
+        List<Task> GetAllTasks(ServiceUserLoginModel loginUser, Guid userGuid);
 
         [OperationContract]
-        Task UpdateTask(Task task);
+        Task UpdateTask(ServiceUserLoginModel loginUser, Task task);
 
         [OperationContract]
-        bool DeleteTask(Task task);
+        bool DeleteTask(ServiceUserLoginModel loginUser, Task task);
     }
 }

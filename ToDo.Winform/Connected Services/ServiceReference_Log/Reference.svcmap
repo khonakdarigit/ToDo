@@ -29,6 +29,7 @@
     <MetadataFile FileName="Service_Log1.xsd" MetadataType="Schema" ID="66fd25b8-c448-4a2e-8947-707f8fc25b5a" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd0" />
     <MetadataFile FileName="Service_Log2.xsd" MetadataType="Schema" ID="3306c933-1925-441a-8728-77a8e8791d91" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd3" />
     <MetadataFile FileName="Service_Log3.xsd" MetadataType="Schema" ID="82fcb610-afd9-4843-9aad-006bec1c4efe" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service_Log4.xsd" MetadataType="Schema" ID="41453e7d-99af-4e93-b372-ada50d79f8c8" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?xsd=xsd4" />
     <MetadataFile FileName="Service_Log.wsdl" MetadataType="Wsdl" ID="9e94c0d9-06f3-44da-8340-0f9480bf10a4" SourceId="1" SourceUrl="http://localhost:55511/Service_Log.svc?wsdl" />
   </Metadata>
   <Extensions>

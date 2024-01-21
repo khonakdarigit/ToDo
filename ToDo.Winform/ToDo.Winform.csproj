@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +46,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -88,6 +115,12 @@
     <Compile Include="Forms\frm_CompeleTask.Designer.cs">
       <DependentUpon>frm_CompeleTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_GetGUID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_GetGUID.Designer.cs">
+      <DependentUpon>frm_GetGUID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frm_NewTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +143,7 @@
     <Compile Include="Models\AppOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceUser.cs" />
     <Compile Include="Toos\FormMode.cs" />
     <Compile Include="Toos\JsonPersister.cs" />
     <EmbeddedResource Include="BaseForm.resx">
@@ -117,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_CompeleTask.resx">
       <DependentUpon>frm_CompeleTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_GetGUID.resx">
+      <DependentUpon>frm_GetGUID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_NewTask.resx">
       <DependentUpon>frm_NewTask.cs</DependentUpon>
@@ -149,6 +186,9 @@
     <None Include="Connected Services\ServiceReference_Log\Service_Log3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference_Log\Service_Log4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference_TaskLog\Service_TaskLog.wsdl" />
     <None Include="Connected Services\ServiceReference_TaskLog\Service_TaskLog.xsd">
       <SubType>Designer</SubType>
@@ -160,6 +200,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference_TaskLog\Service_TaskLog3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference_TaskLog\Service_TaskLog4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference_TaskLog\ToDo.Winform.ServiceReference_TaskLog.TaskLog.datasource">
@@ -178,6 +221,9 @@
     <None Include="Connected Services\ServiceReference_TaskManager\Service_TaskManager3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference_TaskManager\Service_TaskManager4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference_TaskManager\ToDo.Winform.ServiceReference_TaskManager.Task.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -194,10 +240,14 @@
     <None Include="Connected Services\ServiceReference_UserManager\Service_UserManager3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference_UserManager\Service_UserManager4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference_UserManager\ToDo.Winform.ServiceReference_UserManager.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -243,7 +293,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Tasky.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tasky.Models\Tasky.Models.csproj">
@@ -256,6 +305,21 @@
     <WCFMetadataStorage Include="Connected Services\ServiceReference_TaskLog\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReference_TaskManager\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReference_UserManager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

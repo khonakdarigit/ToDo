@@ -160,7 +160,7 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
         private bool IsCompleteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ToDo.Winform.ServiceReference_TaskLog.TaskLog[] TaskLogsField;
+        private System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.TaskLog> TaskLogsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -234,7 +234,7 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ToDo.Winform.ServiceReference_TaskLog.TaskLog[] TaskLogs {
+        public System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.TaskLog> TaskLogs {
             get {
                 return this.TaskLogsField;
             }
@@ -314,10 +314,7 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ToDo.Winform.ServiceReference_TaskLog.Task[] TasksField;
+        private System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.Task> TasksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserNameField;
@@ -372,20 +369,7 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pasword {
-            get {
-                return this.PaswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaswordField, value) != true)) {
-                    this.PaswordField = value;
-                    this.RaisePropertyChanged("Pasword");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ToDo.Winform.ServiceReference_TaskLog.Task[] Tasks {
+        public System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.Task> Tasks {
             get {
                 return this.TasksField;
             }
@@ -425,28 +409,28 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
     public interface IService_TaskLog {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/GetAllTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/GetAllTaskLogResponse")]
-        ToDo.Winform.ServiceReference_TaskLog.TaskLog[] GetAllTaskLog(int TaskId);
+        System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.TaskLog> GetAllTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/GetAllTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/GetAllTaskLogResponse")]
-        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog[]> GetAllTaskLogAsync(int TaskId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.TaskLog>> GetAllTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/AddNewTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/AddNewTaskLogResponse")]
-        ToDo.Winform.ServiceReference_TaskLog.TaskLog AddNewTaskLog(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        ToDo.Winform.ServiceReference_TaskLog.TaskLog AddNewTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/AddNewTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/AddNewTaskLogResponse")]
-        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> AddNewTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> AddNewTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/UpdateTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/UpdateTaskLogResponse")]
-        ToDo.Winform.ServiceReference_TaskLog.TaskLog UpdateTaskLog(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        ToDo.Winform.ServiceReference_TaskLog.TaskLog UpdateTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/UpdateTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/UpdateTaskLogResponse")]
-        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> UpdateTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> UpdateTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/DeleteTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/DeleteTaskLogResponse")]
-        bool DeleteTaskLog(int TaskLogId);
+        bool DeleteTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskLogId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/DeleteTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/DeleteTaskLogResponse")]
-        System.Threading.Tasks.Task<bool> DeleteTaskLogAsync(int TaskLogId);
+        System.Threading.Tasks.Task<bool> DeleteTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskLogId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -476,36 +460,36 @@ namespace ToDo.Winform.ServiceReference_TaskLog {
                 base(binding, remoteAddress) {
         }
         
-        public ToDo.Winform.ServiceReference_TaskLog.TaskLog[] GetAllTaskLog(int TaskId) {
-            return base.Channel.GetAllTaskLog(TaskId);
+        public System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.TaskLog> GetAllTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskId) {
+            return base.Channel.GetAllTaskLog(loginUser, TaskId);
         }
         
-        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog[]> GetAllTaskLogAsync(int TaskId) {
-            return base.Channel.GetAllTaskLogAsync(TaskId);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskLog.TaskLog>> GetAllTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskId) {
+            return base.Channel.GetAllTaskLogAsync(loginUser, TaskId);
         }
         
-        public ToDo.Winform.ServiceReference_TaskLog.TaskLog AddNewTaskLog(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
-            return base.Channel.AddNewTaskLog(taskLog);
+        public ToDo.Winform.ServiceReference_TaskLog.TaskLog AddNewTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
+            return base.Channel.AddNewTaskLog(loginUser, taskLog);
         }
         
-        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> AddNewTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
-            return base.Channel.AddNewTaskLogAsync(taskLog);
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> AddNewTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
+            return base.Channel.AddNewTaskLogAsync(loginUser, taskLog);
         }
         
-        public ToDo.Winform.ServiceReference_TaskLog.TaskLog UpdateTaskLog(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
-            return base.Channel.UpdateTaskLog(taskLog);
+        public ToDo.Winform.ServiceReference_TaskLog.TaskLog UpdateTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
+            return base.Channel.UpdateTaskLog(loginUser, taskLog);
         }
         
-        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> UpdateTaskLogAsync(ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
-            return base.Channel.UpdateTaskLogAsync(taskLog);
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskLog.TaskLog> UpdateTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskLog.TaskLog taskLog) {
+            return base.Channel.UpdateTaskLogAsync(loginUser, taskLog);
         }
         
-        public bool DeleteTaskLog(int TaskLogId) {
-            return base.Channel.DeleteTaskLog(TaskLogId);
+        public bool DeleteTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskLogId) {
+            return base.Channel.DeleteTaskLog(loginUser, TaskLogId);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteTaskLogAsync(int TaskLogId) {
-            return base.Channel.DeleteTaskLogAsync(TaskLogId);
+        public System.Threading.Tasks.Task<bool> DeleteTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskLogId) {
+            return base.Channel.DeleteTaskLogAsync(loginUser, TaskLogId);
         }
     }
 }

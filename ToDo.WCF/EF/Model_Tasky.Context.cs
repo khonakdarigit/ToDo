@@ -20,17 +20,12 @@ namespace ToDo.WCF.EF
         {
             Configuration.ProxyCreationEnabled = false;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-        protected override void Dispose(bool disposing)
-        {
-            Configuration.LazyLoadingEnabled = false;
-            base.Dispose(disposing);
-        }
-
+    
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<TaskLog> TaskLogs { get; set; }

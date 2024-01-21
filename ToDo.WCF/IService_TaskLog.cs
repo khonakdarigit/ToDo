@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Tasky.Models.Account;
 using ToDo.WCF.EF;
 
 namespace ToDo.WCF
@@ -13,14 +14,14 @@ namespace ToDo.WCF
     public interface IService_TaskLog
     {
         [OperationContract]
-        List<TaskLog> GetAllTaskLog(int TaskId);
+        List<TaskLog> GetAllTaskLog(ServiceUserLoginModel loginUser, int TaskId);
 
         [OperationContract]
-        TaskLog AddNewTaskLog(TaskLog taskLog);
+        TaskLog AddNewTaskLog(ServiceUserLoginModel loginUser, TaskLog taskLog);
 
         [OperationContract]
-        TaskLog UpdateTaskLog(TaskLog taskLog);
+        TaskLog UpdateTaskLog(ServiceUserLoginModel loginUser, TaskLog taskLog);
         [OperationContract]
-        bool DeleteTaskLog(int TaskLogId);
+        bool DeleteTaskLog(ServiceUserLoginModel loginUser, int TaskLogId);
     }
 }

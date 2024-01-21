@@ -12,6 +12,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.WCF", "ToDo.WCF\ToDo.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasky.Models", "Tasky.Models\Tasky.Models.csproj", "{37968F40-D697-425C-A883-0C862C9DEDB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Web", "ToDo.Web\ToDo.Web.csproj", "{0D9DFC21-0F82-48FA-A6CB-C913911CABC1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0BB7BDE-151E-4D0F-943F-DDE00FF710F1} = {C0BB7BDE-151E-4D0F-943F-DDE00FF710F1}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{1CEF9561-1C48-45CF-8528-2DD1C2AADD2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +37,12 @@ Global
 		{37968F40-D697-425C-A883-0C862C9DEDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37968F40-D697-425C-A883-0C862C9DEDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37968F40-D697-425C-A883-0C862C9DEDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D9DFC21-0F82-48FA-A6CB-C913911CABC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D9DFC21-0F82-48FA-A6CB-C913911CABC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D9DFC21-0F82-48FA-A6CB-C913911CABC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D9DFC21-0F82-48FA-A6CB-C913911CABC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CEF9561-1C48-45CF-8528-2DD1C2AADD2E}.Debug|Any CPU.ActiveCfg = Debug
+		{1CEF9561-1C48-45CF-8528-2DD1C2AADD2E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

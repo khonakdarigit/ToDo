@@ -30,7 +30,7 @@ namespace ToDo.Winform.Forms
             using(var service_TaskManagerClient =new ServiceReference_TaskManager.Service_TaskManagerClient())
             {
                 CurrntTask.IsComplete = true;
-                service_TaskManagerClient.UpdateTask(CurrntTask);
+                service_TaskManagerClient.UpdateTask(ServiceUser.login, CurrntTask);
                 this.Close();
             }
         }
@@ -40,7 +40,7 @@ namespace ToDo.Winform.Forms
             using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
             {
                 CurrntTask.IsComplete = false;
-                service_TaskManagerClient.UpdateTask(CurrntTask);
+                service_TaskManagerClient.UpdateTask(ServiceUser.login, CurrntTask);
                 this.Close();
             }
         }

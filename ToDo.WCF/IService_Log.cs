@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Tasky.Models.Account;
 using ToDo.WCF.EF;
 
 namespace ToDo.WCF
@@ -13,6 +14,6 @@ namespace ToDo.WCF
     public interface IService_Log
     {
         [OperationContract]
-        void NewLog(Log log);
+        void NewLog(ServiceUserLoginModel loginUser, Log log);
     }
 }

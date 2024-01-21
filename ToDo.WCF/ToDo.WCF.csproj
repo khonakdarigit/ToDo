@@ -119,6 +119,7 @@
     <Compile Include="IService_TaskManager.cs" />
     <Compile Include="IService_UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceUser\ServiceUserData.cs" />
     <Compile Include="Service_Log.svc.cs">
       <DependentUpon>Service_Log.svc</DependentUpon>
     </Compile>

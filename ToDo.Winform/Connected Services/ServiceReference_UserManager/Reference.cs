@@ -32,9 +32,6 @@ namespace ToDo.Winform.ServiceReference_UserManager {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<ToDo.Winform.ServiceReference_UserManager.Task> TasksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -85,19 +82,6 @@ namespace ToDo.Winform.ServiceReference_UserManager {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pasword {
-            get {
-                return this.PaswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaswordField, value) != true)) {
-                    this.PaswordField = value;
-                    this.RaisePropertyChanged("Pasword");
                 }
             }
         }
@@ -424,11 +408,29 @@ namespace ToDo.Winform.ServiceReference_UserManager {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference_UserManager.IService_UserManager")]
     public interface IService_UserManager {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetNewUSer", ReplyAction="http://tempuri.org/IService_UserManager/GetNewUSerResponse")]
-        ToDo.Winform.ServiceReference_UserManager.User GetNewUSer();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetNewUser", ReplyAction="http://tempuri.org/IService_UserManager/GetNewUserResponse")]
+        ToDo.Winform.ServiceReference_UserManager.User GetNewUser(Tasky.Models.Account.ServiceUserLoginModel loginUser);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetNewUSer", ReplyAction="http://tempuri.org/IService_UserManager/GetNewUSerResponse")]
-        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetNewUSerAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetNewUser", ReplyAction="http://tempuri.org/IService_UserManager/GetNewUserResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetNewUserAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetNewWebUser", ReplyAction="http://tempuri.org/IService_UserManager/GetNewWebUserResponse")]
+        ToDo.Winform.ServiceReference_UserManager.User GetNewWebUser(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetNewWebUser", ReplyAction="http://tempuri.org/IService_UserManager/GetNewWebUserResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetNewWebUserAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetUserWithUsername", ReplyAction="http://tempuri.org/IService_UserManager/GetUserWithUsernameResponse")]
+        ToDo.Winform.ServiceReference_UserManager.User GetUserWithUsername(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetUserWithUsername", ReplyAction="http://tempuri.org/IService_UserManager/GetUserWithUsernameResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetUserWithUsernameAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetUserWithGuid", ReplyAction="http://tempuri.org/IService_UserManager/GetUserWithGuidResponse")]
+        ToDo.Winform.ServiceReference_UserManager.User GetUserWithGuid(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid guid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_UserManager/GetUserWithGuid", ReplyAction="http://tempuri.org/IService_UserManager/GetUserWithGuidResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetUserWithGuidAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid guid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -458,12 +460,36 @@ namespace ToDo.Winform.ServiceReference_UserManager {
                 base(binding, remoteAddress) {
         }
         
-        public ToDo.Winform.ServiceReference_UserManager.User GetNewUSer() {
-            return base.Channel.GetNewUSer();
+        public ToDo.Winform.ServiceReference_UserManager.User GetNewUser(Tasky.Models.Account.ServiceUserLoginModel loginUser) {
+            return base.Channel.GetNewUser(loginUser);
         }
         
-        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetNewUSerAsync() {
-            return base.Channel.GetNewUSerAsync();
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetNewUserAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser) {
+            return base.Channel.GetNewUserAsync(loginUser);
+        }
+        
+        public ToDo.Winform.ServiceReference_UserManager.User GetNewWebUser(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username) {
+            return base.Channel.GetNewWebUser(loginUser, Username);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetNewWebUserAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username) {
+            return base.Channel.GetNewWebUserAsync(loginUser, Username);
+        }
+        
+        public ToDo.Winform.ServiceReference_UserManager.User GetUserWithUsername(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username) {
+            return base.Channel.GetUserWithUsername(loginUser, Username);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetUserWithUsernameAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, string Username) {
+            return base.Channel.GetUserWithUsernameAsync(loginUser, Username);
+        }
+        
+        public ToDo.Winform.ServiceReference_UserManager.User GetUserWithGuid(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid guid) {
+            return base.Channel.GetUserWithGuid(loginUser, guid);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_UserManager.User> GetUserWithGuidAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid guid) {
+            return base.Channel.GetUserWithGuidAsync(loginUser, guid);
         }
     }
 }

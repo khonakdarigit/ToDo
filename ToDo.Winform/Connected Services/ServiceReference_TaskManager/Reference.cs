@@ -189,9 +189,6 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task> TasksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -242,19 +239,6 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pasword {
-            get {
-                return this.PaswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaswordField, value) != true)) {
-                    this.PaswordField = value;
-                    this.RaisePropertyChanged("Pasword");
                 }
             }
         }
@@ -425,28 +409,28 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
     public interface IService_TaskManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/AddNewTask", ReplyAction="http://tempuri.org/IService_TaskManager/AddNewTaskResponse")]
-        ToDo.Winform.ServiceReference_TaskManager.Task AddNewTask(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        ToDo.Winform.ServiceReference_TaskManager.Task AddNewTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/AddNewTask", ReplyAction="http://tempuri.org/IService_TaskManager/AddNewTaskResponse")]
-        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> AddNewTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> AddNewTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/GetAllTasks", ReplyAction="http://tempuri.org/IService_TaskManager/GetAllTasksResponse")]
-        System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task> GetAllTasks(System.Guid userGuid);
+        System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task> GetAllTasks(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid userGuid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/GetAllTasks", ReplyAction="http://tempuri.org/IService_TaskManager/GetAllTasksResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task>> GetAllTasksAsync(System.Guid userGuid);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task>> GetAllTasksAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid userGuid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/UpdateTask", ReplyAction="http://tempuri.org/IService_TaskManager/UpdateTaskResponse")]
-        ToDo.Winform.ServiceReference_TaskManager.Task UpdateTask(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        ToDo.Winform.ServiceReference_TaskManager.Task UpdateTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/UpdateTask", ReplyAction="http://tempuri.org/IService_TaskManager/UpdateTaskResponse")]
-        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> UpdateTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> UpdateTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/DeleteTask", ReplyAction="http://tempuri.org/IService_TaskManager/DeleteTaskResponse")]
-        bool DeleteTask(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        bool DeleteTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/DeleteTask", ReplyAction="http://tempuri.org/IService_TaskManager/DeleteTaskResponse")]
-        System.Threading.Tasks.Task<bool> DeleteTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task);
+        System.Threading.Tasks.Task<bool> DeleteTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -476,36 +460,36 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
                 base(binding, remoteAddress) {
         }
         
-        public ToDo.Winform.ServiceReference_TaskManager.Task AddNewTask(ToDo.Winform.ServiceReference_TaskManager.Task task) {
-            return base.Channel.AddNewTask(task);
+        public ToDo.Winform.ServiceReference_TaskManager.Task AddNewTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.AddNewTask(loginUser, task);
         }
         
-        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> AddNewTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task) {
-            return base.Channel.AddNewTaskAsync(task);
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> AddNewTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.AddNewTaskAsync(loginUser, task);
         }
         
-        public System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task> GetAllTasks(System.Guid userGuid) {
-            return base.Channel.GetAllTasks(userGuid);
+        public System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task> GetAllTasks(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid userGuid) {
+            return base.Channel.GetAllTasks(loginUser, userGuid);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task>> GetAllTasksAsync(System.Guid userGuid) {
-            return base.Channel.GetAllTasksAsync(userGuid);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.Task>> GetAllTasksAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, System.Guid userGuid) {
+            return base.Channel.GetAllTasksAsync(loginUser, userGuid);
         }
         
-        public ToDo.Winform.ServiceReference_TaskManager.Task UpdateTask(ToDo.Winform.ServiceReference_TaskManager.Task task) {
-            return base.Channel.UpdateTask(task);
+        public ToDo.Winform.ServiceReference_TaskManager.Task UpdateTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.UpdateTask(loginUser, task);
         }
         
-        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> UpdateTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task) {
-            return base.Channel.UpdateTaskAsync(task);
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> UpdateTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.UpdateTaskAsync(loginUser, task);
         }
         
-        public bool DeleteTask(ToDo.Winform.ServiceReference_TaskManager.Task task) {
-            return base.Channel.DeleteTask(task);
+        public bool DeleteTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.DeleteTask(loginUser, task);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteTaskAsync(ToDo.Winform.ServiceReference_TaskManager.Task task) {
-            return base.Channel.DeleteTaskAsync(task);
+        public System.Threading.Tasks.Task<bool> DeleteTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {
+            return base.Channel.DeleteTaskAsync(loginUser, task);
         }
     }
 }

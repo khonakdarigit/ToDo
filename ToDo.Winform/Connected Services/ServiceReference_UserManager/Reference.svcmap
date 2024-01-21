@@ -26,6 +26,7 @@
   <Metadata>
     <MetadataFile FileName="Service_UserManager.wsdl" MetadataType="Wsdl" ID="6b98aa46-d063-4d38-9a67-edf59e7a02e2" SourceId="1" SourceUrl="http://localhost:55511/Service_UserManager.svc?wsdl" />
     <MetadataFile FileName="Service_UserManager.disco" MetadataType="Disco" ID="dfba65c1-126e-4d04-b777-8a95c7f42f35" SourceId="1" SourceUrl="http://localhost:55511/Service_UserManager.svc?disco" />
+    <MetadataFile FileName="Service_UserManager4.xsd" MetadataType="Schema" ID="0cd86a78-3b16-4cf4-a343-2b975a553e99" SourceId="1" SourceUrl="http://localhost:55511/Service_UserManager.svc?xsd=xsd4" />
     <MetadataFile FileName="Service_UserManager.xsd" MetadataType="Schema" ID="e22271b9-6e90-45f2-abc2-d55d635ebfea" SourceId="1" SourceUrl="http://localhost:55511/Service_UserManager.svc?xsd=xsd2" />
     <MetadataFile FileName="Service_UserManager1.xsd" MetadataType="Schema" ID="c82a7219-9056-4ade-b9a9-d8c9e1474cb9" SourceId="1" SourceUrl="http://localhost:55511/Service_UserManager.svc?xsd=xsd3" />
     <MetadataFile FileName="Service_UserManager2.xsd" MetadataType="Schema" ID="72f4e5be-0038-4502-9d81-53197961607b" SourceId="1" SourceUrl="http://localhost:55511/Service_UserManager.svc?xsd=xsd0" />

@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Tasky.Models.Account;
 using ToDo.WCF.EF;
 
 namespace ToDo.WCF
@@ -14,6 +15,12 @@ namespace ToDo.WCF
     public interface IService_UserManager
     {
         [OperationContract]
-        User GetNewUSer();
+        User GetNewUser(ServiceUserLoginModel loginUser);
+        [OperationContract]
+        User GetNewWebUser(ServiceUserLoginModel loginUser, string Username);
+        [OperationContract]
+        User GetUserWithUsername(ServiceUserLoginModel loginUser, string Username);
+        [OperationContract]
+        User GetUserWithGuid(ServiceUserLoginModel loginUser, Guid guid);
     }
 }

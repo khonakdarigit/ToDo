@@ -11,8 +11,7 @@ namespace ToDo.WCF.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
+    
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +19,12 @@ namespace ToDo.WCF.EF
         {
             this.Tasks = new HashSet<Task>();
         }
-
+    
         public int Id { get; set; }
         public string UserName { get; set; }
-        public string Pasword { get; set; }
         public Nullable<System.DateTimeOffset> CreationDate { get; set; }
         public System.Guid GUID { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Tasks { get; set; }
     }

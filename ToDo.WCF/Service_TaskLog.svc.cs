@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Tasky.Models.Account;
 using ToDo.WCF.EF;
+using ToDo.WCF.ServiceUser;
 
 namespace ToDo.WCF
 {
@@ -15,34 +17,49 @@ namespace ToDo.WCF
     {
         private Model_TaskyContainer db = new Model_TaskyContainer();
 
-        public TaskLog AddNewTaskLog(TaskLog taskLog)
+        public TaskLog AddNewTaskLog(ServiceUserLoginModel loginModel, TaskLog taskLog)
         {
-            taskLog.CreationDate = DateTime.Now;
-            db.TaskLogs.Add(taskLog);
-            db.SaveChanges();
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                taskLog.CreationDate = DateTime.Now;
+                db.TaskLogs.Add(taskLog);
+                db.SaveChanges();
 
-            return taskLog;
-
+                return taskLog;
+            }
+            return null;
         }
 
-        public bool DeleteTaskLog(int TaskLogId)
+        public bool DeleteTaskLog(ServiceUserLoginModel loginModel, int TaskLogId)
         {
-            var RemoveTaskLog=db.TaskLogs.FirstOrDefault(c => c.Id == TaskLogId);
-            db.TaskLogs.Remove(RemoveTaskLog);
-            db.SaveChanges() ;
-            return true;
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                var RemoveTaskLog = db.TaskLogs.FirstOrDefault(c => c.Id == TaskLogId);
+                db.TaskLogs.Remove(RemoveTaskLog);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
-        public List<TaskLog> GetAllTaskLog(int taskId)
+        public List<TaskLog> GetAllTaskLog(ServiceUserLoginModel loginModel, int taskId)
         {
-            return db.TaskLogs.Where(c => c.TaskId == taskId).OrderByDescending(c => c.CreationDate).ToList();
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                return db.TaskLogs.Where(c => c.TaskId == taskId).OrderByDescending(c => c.CreationDate).ToList();
+            }
+            return null;
         }
 
-        public TaskLog UpdateTaskLog(TaskLog taskLog)
+        public TaskLog UpdateTaskLog(ServiceUserLoginModel loginModel, TaskLog taskLog)
         {
-            db.TaskLogs.AddOrUpdate(taskLog);
-            db.SaveChanges();
-            return taskLog;
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                db.TaskLogs.AddOrUpdate(taskLog);
+                db.SaveChanges();
+                return taskLog;
+            }
+            return null;
         }
     }
 }

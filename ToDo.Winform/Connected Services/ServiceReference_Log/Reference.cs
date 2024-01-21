@@ -127,10 +127,10 @@ namespace ToDo.Winform.ServiceReference_Log {
     public interface IService_Log {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_Log/NewLog", ReplyAction="http://tempuri.org/IService_Log/NewLogResponse")]
-        void NewLog(ToDo.Winform.ServiceReference_Log.Log log);
+        void NewLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_Log.Log log);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_Log/NewLog", ReplyAction="http://tempuri.org/IService_Log/NewLogResponse")]
-        System.Threading.Tasks.Task NewLogAsync(ToDo.Winform.ServiceReference_Log.Log log);
+        System.Threading.Tasks.Task NewLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_Log.Log log);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -160,12 +160,12 @@ namespace ToDo.Winform.ServiceReference_Log {
                 base(binding, remoteAddress) {
         }
         
-        public void NewLog(ToDo.Winform.ServiceReference_Log.Log log) {
-            base.Channel.NewLog(log);
+        public void NewLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_Log.Log log) {
+            base.Channel.NewLog(loginUser, log);
         }
         
-        public System.Threading.Tasks.Task NewLogAsync(ToDo.Winform.ServiceReference_Log.Log log) {
-            return base.Channel.NewLogAsync(log);
+        public System.Threading.Tasks.Task NewLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_Log.Log log) {
+            return base.Channel.NewLogAsync(loginUser, log);
         }
     }
 }

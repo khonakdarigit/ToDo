@@ -59,7 +59,7 @@ namespace ToDo.Winform.Forms
                 int TaskLogCount = 0;
                 using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
                 {
-                    TaskLogCount = service_TaskLogClient.GetAllTaskLog(CurrntTask.Id).Count();
+                    TaskLogCount = service_TaskLogClient.GetAllTaskLog(ServiceUser.login, CurrntTask.Id).Count();
                 }
 
                 using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
@@ -71,7 +71,7 @@ namespace ToDo.Winform.Forms
                             MessageBoxIcon.Question
                         ) == DialogResult.Yes)
                     {
-                        service_TaskManagerClient.DeleteTask(CurrntTask);
+                        service_TaskManagerClient.DeleteTask(ServiceUser.login, CurrntTask);
                         FillTasks();
                         FillTaskLog();
                     }
@@ -112,7 +112,7 @@ namespace ToDo.Winform.Forms
         }
         private void btn_AddNewTaskLog_Click(object sender, EventArgs e)
         {
-            frm_NewTaskLog frm_NewTaskLog = new frm_NewTaskLog(CurrntTaskLog);
+            frm_NewTaskLog frm_NewTaskLog = new frm_NewTaskLog(new ServiceReference_TaskLog.TaskLog() { TaskId = CurrntTask.Id });
             frm_NewTaskLog.ShowDialog();
             FillTaskLog();
         }
@@ -139,7 +139,7 @@ namespace ToDo.Winform.Forms
                            MessageBoxIcon.Question
                        ) == DialogResult.Yes)
                 {
-                    service_TaskLogClient.DeleteTaskLog(CurrntTaskLog.Id);
+                    service_TaskLogClient.DeleteTaskLog(ServiceUser.login, CurrntTaskLog.Id);
                     FillTaskLog();
                 }
 
@@ -187,7 +187,7 @@ namespace ToDo.Winform.Forms
         {
             using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
             {
-                var Tasks = service_TaskManagerClient.GetAllTasks(Program.Get_appData().User.GUID);
+                var Tasks = service_TaskManagerClient.GetAllTasks(ServiceUser.login, Program.Get_appData().User.GUID);
                 taskBindingSource.CurrentChanged -= taskBindingSource_CurrentChanged;
                 if (!Program.Get_appData().appOptions.Option_ShowCompleteTask)
                     Tasks = Tasks.Where(c => c.IsComplete == false).ToList();
@@ -203,7 +203,7 @@ namespace ToDo.Winform.Forms
             {
                 using (var service_TaskLogClient = new ServiceReference_TaskLog.Service_TaskLogClient())
                 {
-                    var TaskLog = service_TaskLogClient.GetAllTaskLog(CurrntTask.Id);
+                    var TaskLog = service_TaskLogClient.GetAllTaskLog(ServiceUser.login, CurrntTask.Id);
                     taskLogBindingSource.DataSource = TaskLog;
                 }
             }

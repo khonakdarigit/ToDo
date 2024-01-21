@@ -5,8 +5,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Tasky.Models.Account;
 using Tasky.Models.Tools;
 using ToDo.WCF.EF;
+using ToDo.WCF.ServiceUser;
 
 namespace ToDo.WCF
 {
@@ -16,77 +18,90 @@ namespace ToDo.WCF
     {
         private Model_TaskyContainer db = new Model_TaskyContainer();
 
-        public Task AddNewTask(Task task)
+        public Task AddNewTask(ServiceUserLoginModel loginModel, Task task)
         {
-            try
+            if (ServiceUserData.CheckUser(loginModel))
             {
-                task.CreationDate = DateTime.Now;
-                task.DoneDate = DateTime.Now;
-                db.Tasks.Add(task);
-                var res = db.SaveChanges();
-                if (res == 1)
+                try
                 {
-                    return task;
+                    task.CreationDate = DateTime.Now;
+                    task.DoneDate = DateTime.Now;
+                    db.Tasks.Add(task);
+                    var res = db.SaveChanges();
+                    if (res == 1)
+                    {
+                        return task;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                Service_Log service_Log = new Service_Log();
+                    Service_Log service_Log = new Service_Log();
 
-                service_Log.NewLog(new Log
-                {
-                    Date = DateTime.Now,
-                    LogTitle = ex.Message,
-                    LogDetail = ex.StackTrace,
-                    LogLevel = LogLevel.Error.ToString(),
-                });
+                    service_Log.NewLog(loginModel, new Log
+                    {
+                        Date = DateTime.Now,
+                        LogTitle = ex.Message,
+                        LogDetail = ex.StackTrace,
+                        LogLevel = LogLevel.Error.ToString(),
+                    });
+                }
             }
             return null;
 
         }
 
-        public bool DeleteTask(Task task)
+        public bool DeleteTask(ServiceUserLoginModel loginModel, Task task)
         {
-            try
+            if (ServiceUserData.CheckUser(loginModel))
             {
-                var taskLog = db.TaskLogs.Where(c => c.TaskId == task.Id);
-                var removeTask = db.Tasks.FirstOrDefault(c => c.Id == task.Id);
-
-                db.TaskLogs.RemoveRange(taskLog);
-                db.Tasks.Remove(removeTask);
-
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Service_Log service_Log = new Service_Log();
-
-                service_Log.NewLog(new Log
+                try
                 {
-                    Date = DateTime.Now,
-                    LogTitle = ex.Message,
-                    LogDetail = ex.StackTrace,
-                    LogLevel = LogLevel.Error.ToString(),
-                });
+                    var taskLog = db.TaskLogs.Where(c => c.TaskId == task.Id);
+                    var removeTask = db.Tasks.FirstOrDefault(c => c.Id == task.Id);
+
+                    db.TaskLogs.RemoveRange(taskLog);
+                    db.Tasks.Remove(removeTask);
+
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Service_Log service_Log = new Service_Log();
+
+                    service_Log.NewLog(loginModel, new Log
+                    {
+                        Date = DateTime.Now,
+                        LogTitle = ex.Message,
+                        LogDetail = ex.StackTrace,
+                        LogLevel = LogLevel.Error.ToString(),
+                    });
+                }
             }
             return false;
         }
 
-        public List<Task> GetAllTasks(Guid userGuid)
+        public List<Task> GetAllTasks(ServiceUserLoginModel loginModel, Guid userGuid)
         {
-            return db.Tasks.Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate).ToList();
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                return db.Tasks.Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate).ToList();
+            }
+            return null;
         }
 
-        public Task UpdateTask(Task task)
+        public Task UpdateTask(ServiceUserLoginModel loginModel, Task task)
         {
-            db.Tasks.AddOrUpdate(task);
-            if (db.SaveChanges() == 1)
-            { return task; }
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                db.Tasks.AddOrUpdate(task);
+                db.SaveChanges();
+                return task;
+            }
             return null;
         }
     }

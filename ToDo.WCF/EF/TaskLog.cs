@@ -11,8 +11,7 @@ namespace ToDo.WCF.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
+    
     public partial class TaskLog
     {
         public int Id { get; set; }

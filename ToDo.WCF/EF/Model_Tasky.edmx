@@ -108,7 +108,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Pasword" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CreationDate" Type="DateTimeOffset" Nullable="true" Precision="7" />
           <NavigationProperty Name="Tasks" Relationship="Model_Tasky.UserTask" FromRole="User" ToRole="Task" />
           <Property Name="GUID" Type="Guid" Nullable="false" />
@@ -182,7 +181,6 @@
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Pasword" ColumnName="Pasword" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="GUID" ColumnName="GUID" />
         </MappingFragment>

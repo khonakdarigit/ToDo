@@ -10,18 +10,17 @@ using System.Windows.Forms;
 using Tasky.Models.Tools;
 using ToDo.Winform.Forms;
 using ToDo.Winform.Models;
+using ToDo.Winform.ServiceReference_UserManager;
 using ToDo.Winform.Toos;
 
 namespace ToDo.Winform
 {
-    internal static class Program 
+    internal static class Program
     {
         private static string AppData_fileName = "AppData.json";
-        private static string LogData_fileName = "LogData.json";
-
         private static string WebSite = @"http://tasky.us.to/";
-        private static AppData appData;
-       
+        private static AppData _appData;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -37,15 +36,12 @@ namespace ToDo.Winform
             {
                 if (File.Exists(AppData_fileName))
                 {
-                    appData = new JsonPersister().Deserialize<AppData>(AppData_fileName);
+                    _appData = new JsonPersister().Deserialize<AppData>(AppData_fileName);
+                    Application.Run(new frm_Main());
                 }
                 else
                 {
-                    ServiceReference_UserManager.Service_UserManagerClient service_UserManagerClient = new ServiceReference_UserManager.Service_UserManagerClient();
-                    var User = service_UserManagerClient.GetNewUSer();
-
-                    appData = new AppData() { User = User, appOptions = new AppOptions() { Option_ShowCompleteTask = true } };
-                    new JsonPersister().Serialize<AppData>(AppData_fileName, appData);
+                    Application.Run(new frm_GetGUID());
                 }
 
 
@@ -55,8 +51,6 @@ namespace ToDo.Winform
                 ShowError(ex);
             }
 
-            Application.Run(new frm_Main());
-
         }
 
 
@@ -65,7 +59,7 @@ namespace ToDo.Winform
         {
             Exception ex = (Exception)t.Exception;
             ShowError(ex);
-
+            LogError(ex);
         }
 
         private static void ShowError(Exception ex)
@@ -78,35 +72,50 @@ namespace ToDo.Winform
             {
                 string errorMsg = "An application error occurred. Please contact the adminstrator " +
                "with the following information:\n\n" + Program.WebSite;
-                MessageBox.Show(errorMsg, "Please contact the adminstrator", MessageBoxButtons.AbortRetryIgnore,
-                 MessageBoxIcon.Stop);
-
-                LogError(ex);
+                MessageBox.Show(
+                    errorMsg,
+                    "Please contact the adminstrator",
+                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxIcon.Stop
+                    );
             }
         }
 
 
         private static void LogError(Exception ex)
         {
-            ServiceReference_Log.Service_LogClient service_LogClient = new ServiceReference_Log.Service_LogClient();
-            service_LogClient.NewLog(new ServiceReference_Log.Log()
+            using (var service_LogClient = new ServiceReference_Log.Service_LogClient())
             {
-                LogTitle = ex.Message,
-                LogDetail = ex.StackTrace,
-                LogLevel = LogLevel.Error.ToString(),
-            });
+                service_LogClient.NewLog(ServiceUser.login, new ServiceReference_Log.Log()
+                {
+                    LogTitle = ex.Message,
+                    LogDetail = ex.StackTrace,
+                    LogLevel = LogLevel.Error.ToString(),
+                });
+            }
         }
 
         #region Methods
         internal static void ChangeAppData_Option_ShowCompleteTask(bool @checked)
         {
-            appData.appOptions.Option_ShowCompleteTask = @checked;
-            new JsonPersister().Serialize<AppData>(AppData_fileName, appData);
+            _appData.appOptions.Option_ShowCompleteTask = @checked;
+            new JsonPersister().Serialize<AppData>(AppData_fileName, _appData);
         }
-
+        internal static AppData Create_appDataFile(User taskyUser)
+        {
+            var appData = new AppData() { User = taskyUser, appOptions = new AppOptions() { Option_ShowCompleteTask = true } };
+            new JsonPersister().Serialize<AppData>(AppData_fileName, appData);
+            _appData = appData;
+            return appData;
+        }
         internal static AppData Get_appData()
         {
-            return appData;
+            return _appData;
+        }
+
+        internal static string Get_Website()
+        {
+            return WebSite;
         }
         #endregion
     }

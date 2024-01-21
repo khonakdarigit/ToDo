@@ -28,7 +28,7 @@ namespace ToDo.Winform.Forms
             {
                 using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
                 {
-                    service_TaskManagerClient.AddNewTask(new ServiceReference_TaskManager.Task()
+                    service_TaskManagerClient.AddNewTask(ServiceUser.login, new ServiceReference_TaskManager.Task()
                     {
                         IsComplete = false,
                         Title = txt_TaskTitle.Text,
@@ -41,7 +41,7 @@ namespace ToDo.Winform.Forms
                 using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
                 {
                     CurrnetTask.Title = txt_TaskTitle.Text;
-                    service_TaskManagerClient.UpdateTask(CurrnetTask);
+                    service_TaskManagerClient.UpdateTask(ServiceUser.login, CurrnetTask);
                 }
             }
             this.Close();
