@@ -4,87 +4,86 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model_Tasky.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Logs">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LogLevel" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="LogTitle" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="LogDetail" Type="nvarchar(max)" />
-          <Property Name="Date" Type="datetimeoffset" Precision="7" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TaskLogs">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="CreationDate" Type="datetimeoffset" Precision="7" Nullable="false" />
-          <Property Name="TaskId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Tasks">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreationDate" Type="datetimeoffset" Precision="7" Nullable="false" />
-          <Property Name="IsComplete" Type="bit" Nullable="false" />
-          <Property Name="DoneDate" Type="datetimeoffset" Precision="7" />
-          <Property Name="UserId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar(max)" />
-          <Property Name="Pasword" Type="nvarchar(max)" />
-          <Property Name="CreationDate" Type="datetimeoffset" Precision="7" />
-          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_TaskTaskLog">
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
-          <End Role="TaskLogs" Type="Self.TaskLogs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TaskLogs">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserTask">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Tasks">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="Model_TaskyStoreContainer">
-          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TaskLogs" EntityType="Self.TaskLogs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_TaskTaskLog" Association="Self.FK_TaskTaskLog">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="TaskLogs" EntitySet="TaskLogs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserTask" Association="Self.FK_UserTask">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Tasks" EntitySet="Tasks" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="Model_Tasky.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model_TaskyStoreContainer">
+    <EntitySet Name="Users" EntityType="Model_Tasky.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tasks" EntityType="Model_Tasky.Store.Tasks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaskLogs" EntityType="Model_Tasky.Store.TaskLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logs" EntityType="Model_Tasky.Store.Logs" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserTask" Association="Model_Tasky.Store.UserTask">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="TaskTaskLog" Association="Model_Tasky.Store.TaskTaskLog">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="TaskLog" EntitySet="TaskLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreationDate" Type="datetimeoffset" Nullable="true" Precision="7" />
+    <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreationDate" Type="datetimeoffset" Nullable="false" Precision="7" />
+    <Property Name="IsComplete" Type="bit" Nullable="false" />
+    <Property Name="DoneDate" Type="datetimeoffset" Nullable="true" Precision="7" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreationDate" Type="datetimeoffset" Nullable="false" Precision="7" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogLevel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LogTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LogDetail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Date" Type="datetimeoffset" Nullable="false" Precision="7" />
+  </EntityType>
+  <Association Name="UserTask">
+    <End Role="User" Type="Model_Tasky.Store.Users" Multiplicity="1" />
+    <End Role="Task" Type="Model_Tasky.Store.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TaskTaskLog">
+    <End Role="Task" Type="Model_Tasky.Store.Tasks" Multiplicity="1" />
+    <End Role="TaskLog" Type="Model_Tasky.Store.TaskLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskLog">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model_Tasky" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
