@@ -10,6 +10,7 @@
 namespace ToDo.WCF.EF
 {
     using System;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -18,6 +19,8 @@ namespace ToDo.WCF.EF
         public Model_TaskyContainer()
             : base("name=Model_TaskyContainer")
         {
+            
+            Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
         }
     

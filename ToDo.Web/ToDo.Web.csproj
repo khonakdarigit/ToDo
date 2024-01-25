@@ -206,6 +206,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\Interface\IService_TaskyUserData.cs" />
+    <Compile Include="Services\Service_TaskyUserData.cs" />
     <Compile Include="ServiceUser.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Startup.cs" />
@@ -241,6 +243,12 @@
     <None Include="Connected Services\ServiceReference_TaskManager\Service_TaskManager4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference_TaskManager\Service_TaskManager5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ServiceReference_TaskManager\ToDo.Web.ServiceReference_TaskManager.TaskVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ServiceReference_UserManager\Service_UserManager.disco" />
     <None Include="Connected Services\ServiceReference_UserManager\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference_UserManager\configuration.svcinfo" />
@@ -388,10 +396,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Files\Setup.msi" />
     <Content Include="Views\Task\Index.cshtml" />
+    <Content Include="Views\Task\Create.cshtml" />
+    <Content Include="Views\Task\Details.cshtml" />
+    <Content Include="Views\Task\De324tails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -7,8 +7,15 @@
       <xsd:import schemaLocation="http://localhost:55511/Service_TaskManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" />
       <xsd:import schemaLocation="http://localhost:55511/Service_TaskManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" />
       <xsd:import schemaLocation="http://localhost:55511/Service_TaskManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:55511/Service_TaskManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService_TaskManager_GetTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTask" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_GetTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_TaskManager_AddNewTask_InputMessage">
     <wsdl:part name="parameters" element="tns:AddNewTask" />
   </wsdl:message>
@@ -20,6 +27,12 @@
   </wsdl:message>
   <wsdl:message name="IService_TaskManager_GetAllTasks_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_GetAllTasksVM_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTasksVM" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_GetAllTasksVM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTasksVMResponse" />
   </wsdl:message>
   <wsdl:message name="IService_TaskManager_UpdateTask_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTask" />
@@ -34,6 +47,10 @@
     <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
   </wsdl:message>
   <wsdl:portType name="IService_TaskManager">
+    <wsdl:operation name="GetTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/GetTask" message="tns:IService_TaskManager_GetTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/GetTaskResponse" message="tns:IService_TaskManager_GetTask_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddNewTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/AddNewTask" message="tns:IService_TaskManager_AddNewTask_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/AddNewTaskResponse" message="tns:IService_TaskManager_AddNewTask_OutputMessage" />
@@ -41,6 +58,10 @@
     <wsdl:operation name="GetAllTasks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/GetAllTasks" message="tns:IService_TaskManager_GetAllTasks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/GetAllTasksResponse" message="tns:IService_TaskManager_GetAllTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTasksVM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/GetAllTasksVM" message="tns:IService_TaskManager_GetAllTasksVM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/GetAllTasksVMResponse" message="tns:IService_TaskManager_GetAllTasksVM_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/UpdateTask" message="tns:IService_TaskManager_UpdateTask_InputMessage" />
@@ -53,6 +74,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService_TaskManager" type="tns:IService_TaskManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTask">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskManager/GetTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddNewTask">
       <soap:operation soapAction="http://tempuri.org/IService_TaskManager/AddNewTask" style="document" />
       <wsdl:input>
@@ -64,6 +94,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllTasks">
       <soap:operation soapAction="http://tempuri.org/IService_TaskManager/GetAllTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTasksVM">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskManager/GetAllTasksVM" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

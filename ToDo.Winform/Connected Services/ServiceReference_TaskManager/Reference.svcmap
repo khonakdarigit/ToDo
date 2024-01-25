@@ -30,6 +30,7 @@
     <MetadataFile FileName="Service_TaskManager3.xsd" MetadataType="Schema" ID="7bc265cd-ed7b-4c6b-916d-b510ffacc565" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd2" />
     <MetadataFile FileName="Service_TaskManager.wsdl" MetadataType="Wsdl" ID="bde6dcdf-b015-4320-8cc4-5908a9da6bc1" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?wsdl" />
     <MetadataFile FileName="Service_TaskManager.disco" MetadataType="Disco" ID="bf455692-207e-4f0d-b5e9-0e06c752ee43" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?disco" />
+    <MetadataFile FileName="Service_TaskManager5.xsd" MetadataType="Schema" ID="33686d49-8664-49c4-b4c2-e41088e2bc0b" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd5" />
     <MetadataFile FileName="Service_TaskManager4.xsd" MetadataType="Schema" ID="81e57d70-5efa-41a6-aa12-32bfef7e8b15" SourceId="1" SourceUrl="http://localhost:55511/Service_TaskManager.svc?xsd=xsd4" />
   </Metadata>
   <Extensions>

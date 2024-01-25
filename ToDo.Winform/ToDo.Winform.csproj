@@ -224,7 +224,13 @@
     <None Include="Connected Services\ServiceReference_TaskManager\Service_TaskManager4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference_TaskManager\Service_TaskManager5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference_TaskManager\ToDo.Winform.ServiceReference_TaskManager.Task.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference_TaskManager\ToDo.Winform.ServiceReference_TaskManager.TaskVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference_UserManager\Service_UserManager.wsdl" />

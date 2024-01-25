@@ -14,11 +14,25 @@ namespace ToDo.Winform.Forms
     {
         private bool EditMode { get; }
         private ServiceReference_TaskManager.Task CurrnetTask { get; set; }
+        public frm_NewTask()
+        {
+            InitializeComponent();
+        }
 
         public frm_NewTask(bool editMode = false, ServiceReference_TaskManager.Task currnetTask = null)
         {
             EditMode = editMode;
             CurrnetTask = currnetTask;
+            InitializeComponent();
+        }
+        public frm_NewTask(bool editMode = false, ServiceReference_TaskManager.TaskVM currnetTask = null)
+        {
+            EditMode = editMode;
+
+            using (var service_TaskManagerClient = new ServiceReference_TaskManager.Service_TaskManagerClient())
+            {
+                CurrnetTask = service_TaskManagerClient.GetTask(ServiceUser.login, currnetTask.Id);
+            }
             InitializeComponent();
         }
 

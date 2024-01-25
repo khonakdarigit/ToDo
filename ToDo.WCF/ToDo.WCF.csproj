@@ -90,6 +90,7 @@
     <Compile Include="EF\Log.cs">
       <DependentUpon>Model_Tasky.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\ModelTranslator.cs" />
     <Compile Include="EF\Model_Tasky.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +115,8 @@
     <Compile Include="EF\User.cs">
       <DependentUpon>Model_Tasky.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\ViewMdels\TaskLogVM.cs" />
+    <Compile Include="EF\ViewMdels\TaskVM.cs" />
     <Compile Include="IService_Log.cs" />
     <Compile Include="IService_TaskLog.cs" />
     <Compile Include="IService_TaskManager.cs" />

@@ -8,6 +8,7 @@ using System.Text;
 using Tasky.Models.Account;
 using Tasky.Models.Tools;
 using ToDo.WCF.EF;
+using ToDo.WCF.EF.ViewMdels;
 using ToDo.WCF.ServiceUser;
 
 namespace ToDo.WCF
@@ -18,6 +19,27 @@ namespace ToDo.WCF
     {
         private Model_TaskyContainer db = new Model_TaskyContainer();
 
+        public Task GetTask(ServiceUserLoginModel loginModel, int id)
+        {
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                return db.Tasks.FirstOrDefault(c => c.Id == id);
+            }
+            return null;
+        }
+
+        public TaskVM GetTaskVM(ServiceUserLoginModel loginModel, Guid userGuid, int taskId)
+        {
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                var userTask = db.Tasks.Include("TaskLogs").FirstOrDefault(c => c.User.GUID == userGuid & c.Id == taskId);
+
+                var TaskVM = ModelTranslator.TaskToTaskVM(userTask);
+                return TaskVM;
+            }
+            return null;
+        }
+
         public Task AddNewTask(ServiceUserLoginModel loginModel, Task task)
         {
             if (ServiceUserData.CheckUser(loginModel))
@@ -25,7 +47,6 @@ namespace ToDo.WCF
                 try
                 {
                     task.CreationDate = DateTime.Now;
-                    task.DoneDate = DateTime.Now;
                     db.Tasks.Add(task);
                     var res = db.SaveChanges();
                     if (res == 1)
@@ -89,7 +110,24 @@ namespace ToDo.WCF
         {
             if (ServiceUserData.CheckUser(loginModel))
             {
-                return db.Tasks.Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate).ToList();
+                var userTaskLog = db.Tasks.Include("TaskLogs").Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate)
+                    .ToList();
+
+                foreach (var task in userTaskLog)
+                    task.TaskLogs = task.TaskLogs.ToList();
+
+                return userTaskLog;
+            }
+            return null;
+        }
+
+        public List<TaskVM> GetAllTasksVM(ServiceUserLoginModel loginModel, Guid userGuid)
+        {
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                var userTask = db.Tasks.Include("TaskLogs").Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate).ToList();
+                var vm = ModelTranslator.TasksToTasksVM(userTask);
+                return vm;
             }
             return null;
         }
@@ -104,5 +142,7 @@ namespace ToDo.WCF
             }
             return null;
         }
+
+
     }
 }

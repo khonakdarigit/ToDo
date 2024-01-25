@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using Tasky.Models.Account;
 using ToDo.WCF.EF;
+using ToDo.WCF.EF.ViewMdels;
 
 namespace ToDo.WCF
 {
@@ -14,10 +15,19 @@ namespace ToDo.WCF
     public interface IService_TaskManager
     {
         [OperationContract]
+        Task GetTask(ServiceUserLoginModel loginModel, int id);
+
+        [OperationContract]
+        TaskVM GetTaskVM(ServiceUserLoginModel loginModel, Guid userGuid, int taskId);
+
+        [OperationContract]
         Task AddNewTask(ServiceUserLoginModel loginUser, Task task);
 
         [OperationContract]
         List<Task> GetAllTasks(ServiceUserLoginModel loginUser, Guid userGuid);
+
+        [OperationContract]
+        List<TaskVM> GetAllTasksVM(ServiceUserLoginModel loginUser, Guid userGuid);
 
         [OperationContract]
         Task UpdateTask(ServiceUserLoginModel loginUser, Task task);
