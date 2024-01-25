@@ -429,6 +429,9 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         private int TaskLogCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.TaskLogVM> TaskLogsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -510,6 +513,19 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<ToDo.Winform.ServiceReference_TaskManager.TaskLogVM> TaskLogs {
+            get {
+                return this.TaskLogsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TaskLogsField, value) != true)) {
+                    this.TaskLogsField = value;
+                    this.RaisePropertyChanged("TaskLogs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Title {
             get {
                 return this.TitleField;
@@ -545,6 +561,115 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TaskLogVM", Namespace="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels")]
+    [System.SerializableAttribute()]
+    public partial class TaskLogVM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTimeOffset CreationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TaskIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTimeOffset CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TaskId {
+            get {
+                return this.TaskIdField;
+            }
+            set {
+                if ((this.TaskIdField.Equals(value) != true)) {
+                    this.TaskIdField = value;
+                    this.RaisePropertyChanged("TaskId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference_TaskManager.IService_TaskManager")]
     public interface IService_TaskManager {
@@ -554,6 +679,12 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/GetTask", ReplyAction="http://tempuri.org/IService_TaskManager/GetTaskResponse")]
         System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> GetTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginModel, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/GetTaskVM", ReplyAction="http://tempuri.org/IService_TaskManager/GetTaskVMResponse")]
+        ToDo.Winform.ServiceReference_TaskManager.TaskVM GetTaskVM(Tasky.Models.Account.ServiceUserLoginModel loginModel, System.Guid userGuid, int taskId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/GetTaskVM", ReplyAction="http://tempuri.org/IService_TaskManager/GetTaskVMResponse")]
+        System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.TaskVM> GetTaskVMAsync(Tasky.Models.Account.ServiceUserLoginModel loginModel, System.Guid userGuid, int taskId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskManager/AddNewTask", ReplyAction="http://tempuri.org/IService_TaskManager/AddNewTaskResponse")]
         ToDo.Winform.ServiceReference_TaskManager.Task AddNewTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task);
@@ -619,6 +750,14 @@ namespace ToDo.Winform.ServiceReference_TaskManager {
         
         public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.Task> GetTaskAsync(Tasky.Models.Account.ServiceUserLoginModel loginModel, int id) {
             return base.Channel.GetTaskAsync(loginModel, id);
+        }
+        
+        public ToDo.Winform.ServiceReference_TaskManager.TaskVM GetTaskVM(Tasky.Models.Account.ServiceUserLoginModel loginModel, System.Guid userGuid, int taskId) {
+            return base.Channel.GetTaskVM(loginModel, userGuid, taskId);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Winform.ServiceReference_TaskManager.TaskVM> GetTaskVMAsync(Tasky.Models.Account.ServiceUserLoginModel loginModel, System.Guid userGuid, int taskId) {
+            return base.Channel.GetTaskVMAsync(loginModel, userGuid, taskId);
         }
         
         public ToDo.Winform.ServiceReference_TaskManager.Task AddNewTask(Tasky.Models.Account.ServiceUserLoginModel loginUser, ToDo.Winform.ServiceReference_TaskManager.Task task) {

@@ -19,37 +19,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetTaskVM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginModel" nillable="true" type="q3:ServiceUserLoginModel" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userGuid" type="q4:guid" />
+        <xs:element minOccurs="0" name="taskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskVMResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels" minOccurs="0" name="GetTaskVMResult" nillable="true" type="q5:TaskVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddNewTask">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q3:ServiceUserLoginModel" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="task" nillable="true" type="q4:Task" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q6:ServiceUserLoginModel" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="task" nillable="true" type="q7:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddNewTaskResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="AddNewTaskResult" nillable="true" type="q5:Task" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="AddNewTaskResult" nillable="true" type="q8:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllTasks">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q6:ServiceUserLoginModel" />
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userGuid" type="q7:guid" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllTasksResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="GetAllTasksResult" nillable="true" type="q8:ArrayOfTask" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllTasksVM">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q9:ServiceUserLoginModel" />
@@ -57,33 +58,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="GetAllTasksResult" nillable="true" type="q11:ArrayOfTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTasksVM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q12:ServiceUserLoginModel" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userGuid" type="q13:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllTasksVMResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels" minOccurs="0" name="GetAllTasksVMResult" nillable="true" type="q11:ArrayOfTaskVM" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels" minOccurs="0" name="GetAllTasksVMResult" nillable="true" type="q14:ArrayOfTaskVM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateTask">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q12:ServiceUserLoginModel" />
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="task" nillable="true" type="q13:Task" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q15:ServiceUserLoginModel" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="task" nillable="true" type="q16:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateTaskResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="UpdateTaskResult" nillable="true" type="q14:Task" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="UpdateTaskResult" nillable="true" type="q17:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteTask">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q15:ServiceUserLoginModel" />
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="task" nillable="true" type="q16:Task" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q18:ServiceUserLoginModel" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="task" nillable="true" type="q19:Task" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF.ViewMdels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:55511/Service_TaskManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
-  <xs:complexType name="ArrayOfTaskVM">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskVM" nillable="true" type="tns:TaskVM" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTaskVM" nillable="true" type="tns:ArrayOfTaskVM" />
   <xs:complexType name="TaskVM">
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="CreationDate" type="q1:DateTimeOffset" />
@@ -14,9 +8,32 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsComplete" type="xs:boolean" />
       <xs:element minOccurs="0" name="TaskLogCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskLogs" nillable="true" type="tns:ArrayOfTaskLogVM" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TaskVM" nillable="true" type="tns:TaskVM" />
+  <xs:complexType name="ArrayOfTaskLogVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskLogVM" nillable="true" type="tns:TaskLogVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskLogVM" nillable="true" type="tns:ArrayOfTaskLogVM" />
+  <xs:complexType name="TaskLogVM">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="CreationDate" type="q3:DateTimeOffset" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskLogVM" nillable="true" type="tns:TaskLogVM" />
+  <xs:complexType name="ArrayOfTaskVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskVM" nillable="true" type="tns:TaskVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskVM" nillable="true" type="tns:ArrayOfTaskVM" />
 </xs:schema>

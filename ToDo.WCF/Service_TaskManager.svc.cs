@@ -110,11 +110,8 @@ namespace ToDo.WCF
         {
             if (ServiceUserData.CheckUser(loginModel))
             {
-                var userTaskLog = db.Tasks.Include("TaskLogs").Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate)
+                var userTaskLog = db.Tasks.Where(c => c.User.GUID == userGuid).OrderByDescending(c => c.CreationDate)
                     .ToList();
-
-                foreach (var task in userTaskLog)
-                    task.TaskLogs = task.TaskLogs.ToList();
 
                 return userTaskLog;
             }

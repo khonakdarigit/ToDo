@@ -16,6 +16,12 @@
   <wsdl:message name="IService_TaskManager_GetTask_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTaskResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_TaskManager_GetTaskVM_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskVM" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskManager_GetTaskVM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskVMResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_TaskManager_AddNewTask_InputMessage">
     <wsdl:part name="parameters" element="tns:AddNewTask" />
   </wsdl:message>
@@ -51,6 +57,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/GetTask" message="tns:IService_TaskManager_GetTask_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/GetTaskResponse" message="tns:IService_TaskManager_GetTask_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetTaskVM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/GetTaskVM" message="tns:IService_TaskManager_GetTaskVM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/GetTaskVMResponse" message="tns:IService_TaskManager_GetTaskVM_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddNewTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskManager/AddNewTask" message="tns:IService_TaskManager_AddNewTask_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskManager/AddNewTaskResponse" message="tns:IService_TaskManager_AddNewTask_OutputMessage" />
@@ -76,6 +86,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetTask">
       <soap:operation soapAction="http://tempuri.org/IService_TaskManager/GetTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskVM">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskManager/GetTaskVM" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
