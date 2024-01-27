@@ -14,6 +14,8 @@ namespace ToDo.WCF
     public interface IService_TaskLog
     {
         [OperationContract]
+        TaskLog GetTaskLog(ServiceUserLoginModel loginUser, int Id);
+        [OperationContract]
         List<TaskLog> GetAllTaskLog(ServiceUserLoginModel loginUser, int TaskId);
 
         [OperationContract]
@@ -21,6 +23,7 @@ namespace ToDo.WCF
 
         [OperationContract]
         TaskLog UpdateTaskLog(ServiceUserLoginModel loginUser, TaskLog taskLog);
+
         [OperationContract]
         bool DeleteTaskLog(ServiceUserLoginModel loginUser, int TaskLogId);
     }

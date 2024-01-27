@@ -17,6 +17,15 @@ namespace ToDo.WCF
     {
         private Model_TaskyContainer db = new Model_TaskyContainer();
 
+        public TaskLog GetTaskLog(ServiceUserLoginModel loginModel, int Id)
+        {
+            if (ServiceUserData.CheckUser(loginModel))
+            {
+                return db.TaskLogs.FirstOrDefault(t => t.Id == Id);
+            }
+            return null;
+        }
+
         public TaskLog AddNewTaskLog(ServiceUserLoginModel loginModel, TaskLog taskLog)
         {
             if (ServiceUserData.CheckUser(loginModel))
@@ -50,6 +59,8 @@ namespace ToDo.WCF
             }
             return null;
         }
+
+
 
         public TaskLog UpdateTaskLog(ServiceUserLoginModel loginModel, TaskLog taskLog)
         {

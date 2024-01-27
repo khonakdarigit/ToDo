@@ -9,6 +9,12 @@
       <xsd:import schemaLocation="http://localhost:55511/Service_TaskLog.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService_TaskLog_GetTaskLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskLog" />
+  </wsdl:message>
+  <wsdl:message name="IService_TaskLog_GetTaskLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskLogResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_TaskLog_GetAllTaskLog_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTaskLog" />
   </wsdl:message>
@@ -34,6 +40,10 @@
     <wsdl:part name="parameters" element="tns:DeleteTaskLogResponse" />
   </wsdl:message>
   <wsdl:portType name="IService_TaskLog">
+    <wsdl:operation name="GetTaskLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskLog/GetTaskLog" message="tns:IService_TaskLog_GetTaskLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskLog/GetTaskLogResponse" message="tns:IService_TaskLog_GetTaskLog_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllTaskLog">
       <wsdl:input wsaw:Action="http://tempuri.org/IService_TaskLog/GetAllTaskLog" message="tns:IService_TaskLog_GetAllTaskLog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService_TaskLog/GetAllTaskLogResponse" message="tns:IService_TaskLog_GetAllTaskLog_OutputMessage" />
@@ -53,6 +63,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService_TaskLog" type="tns:IService_TaskLog">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTaskLog">
+      <soap:operation soapAction="http://tempuri.org/IService_TaskLog/GetTaskLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllTaskLog">
       <soap:operation soapAction="http://tempuri.org/IService_TaskLog/GetAllTaskLog" style="document" />
       <wsdl:input>

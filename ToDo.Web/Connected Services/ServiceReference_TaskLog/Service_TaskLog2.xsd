@@ -2,12 +2,6 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:55511/Service_TaskLog.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:import schemaLocation="http://localhost:55511/Service_TaskLog.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfTaskLog">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskLog" nillable="true" type="tns:TaskLog" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTaskLog" nillable="true" type="tns:ArrayOfTaskLog" />
   <xs:complexType name="TaskLog">
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="CreationDate" type="q1:DateTimeOffset" />
@@ -32,6 +26,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Task" nillable="true" type="tns:Task" />
+  <xs:complexType name="ArrayOfTaskLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskLog" nillable="true" type="tns:TaskLog" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskLog" nillable="true" type="tns:ArrayOfTaskLog" />
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="CreationDate" nillable="true" type="q4:DateTimeOffset" />

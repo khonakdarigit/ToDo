@@ -408,6 +408,12 @@ namespace ToDo.Web.ServiceReference_TaskLog {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference_TaskLog.IService_TaskLog")]
     public interface IService_TaskLog {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/GetTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/GetTaskLogResponse")]
+        ToDo.Web.ServiceReference_TaskLog.TaskLog GetTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/GetTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/GetTaskLogResponse")]
+        System.Threading.Tasks.Task<ToDo.Web.ServiceReference_TaskLog.TaskLog> GetTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, int Id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService_TaskLog/GetAllTaskLog", ReplyAction="http://tempuri.org/IService_TaskLog/GetAllTaskLogResponse")]
         System.Collections.Generic.List<ToDo.Web.ServiceReference_TaskLog.TaskLog> GetAllTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskId);
         
@@ -458,6 +464,14 @@ namespace ToDo.Web.ServiceReference_TaskLog {
         
         public Service_TaskLogClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public ToDo.Web.ServiceReference_TaskLog.TaskLog GetTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int Id) {
+            return base.Channel.GetTaskLog(loginUser, Id);
+        }
+        
+        public System.Threading.Tasks.Task<ToDo.Web.ServiceReference_TaskLog.TaskLog> GetTaskLogAsync(Tasky.Models.Account.ServiceUserLoginModel loginUser, int Id) {
+            return base.Channel.GetTaskLogAsync(loginUser, Id);
         }
         
         public System.Collections.Generic.List<ToDo.Web.ServiceReference_TaskLog.TaskLog> GetAllTaskLog(Tasky.Models.Account.ServiceUserLoginModel loginUser, int TaskId) {

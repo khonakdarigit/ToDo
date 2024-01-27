@@ -2,10 +2,25 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:55511/Service_TaskLog.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" />
   <xs:import schemaLocation="http://localhost:55511/Service_TaskLog.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" />
-  <xs:element name="GetAllTaskLog">
+  <xs:element name="GetTaskLog">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q1:ServiceUserLoginModel" />
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="GetTaskLogResult" nillable="true" type="q2:TaskLog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTaskLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q3:ServiceUserLoginModel" />
         <xs:element minOccurs="0" name="TaskId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -13,44 +28,44 @@
   <xs:element name="GetAllTaskLogResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="GetAllTaskLogResult" nillable="true" type="q2:ArrayOfTaskLog" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="GetAllTaskLogResult" nillable="true" type="q4:ArrayOfTaskLog" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddNewTaskLog">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q3:ServiceUserLoginModel" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="taskLog" nillable="true" type="q4:TaskLog" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q5:ServiceUserLoginModel" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="taskLog" nillable="true" type="q6:TaskLog" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddNewTaskLogResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="AddNewTaskLogResult" nillable="true" type="q5:TaskLog" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="AddNewTaskLogResult" nillable="true" type="q7:TaskLog" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateTaskLog">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q6:ServiceUserLoginModel" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="taskLog" nillable="true" type="q7:TaskLog" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q8:ServiceUserLoginModel" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="taskLog" nillable="true" type="q9:TaskLog" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateTaskLogResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="UpdateTaskLogResult" nillable="true" type="q8:TaskLog" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ToDo.WCF.EF" minOccurs="0" name="UpdateTaskLogResult" nillable="true" type="q10:TaskLog" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteTaskLog">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q9:ServiceUserLoginModel" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Tasky.Models.Account" minOccurs="0" name="loginUser" nillable="true" type="q11:ServiceUserLoginModel" />
         <xs:element minOccurs="0" name="TaskLogId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
