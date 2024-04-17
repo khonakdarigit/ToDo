@@ -1,6 +1,6 @@
 # ToDo
 
-For Crating DataBase
+For Create DataBase
 ``` sql
 
 -- --------------------------------------------------
