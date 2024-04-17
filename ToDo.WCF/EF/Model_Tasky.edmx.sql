@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/24/2024 01:19:19
+-- Date Created: 04/17/2024 19:02:50
 -- Generated from EDMX file: C:\Users\Mohammad Hosein\source\Repos\ToDo\ToDo.WCF\EF\Model_Tasky.edmx
 -- --------------------------------------------------
 
@@ -17,28 +17,28 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_TaskTaskLog]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[TaskLogs] DROP CONSTRAINT [FK_TaskTaskLog];
-GO
 IF OBJECT_ID(N'[dbo].[FK_UserTask]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Tasks] DROP CONSTRAINT [FK_UserTask];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TaskTaskLog]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TaskLogs] DROP CONSTRAINT [FK_TaskTaskLog];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Logs]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Logs];
-GO
-IF OBJECT_ID(N'[dbo].[TaskLogs]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TaskLogs];
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 IF OBJECT_ID(N'[dbo].[Tasks]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Tasks];
 GO
-IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Users];
+IF OBJECT_ID(N'[dbo].[TaskLogs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TaskLogs];
+GO
+IF OBJECT_ID(N'[dbo].[Logs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Logs];
 GO
 
 -- --------------------------------------------------
