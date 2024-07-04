@@ -18,7 +18,7 @@ namespace ToDo.Winform
     internal static class Program
     {
         private static string AppData_fileName = "AppData.json";
-        private static string WebSite = @"http://tasky.us.to/";
+        private static string WebSite = @"https://localhost:44361/";
         private static AppData _appData;
 
         /// <summary>

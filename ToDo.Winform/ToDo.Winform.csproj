@@ -313,6 +313,7 @@
     <WCFMetadataStorage Include="Connected Services\ServiceReference_UserManager\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="128_Tasky.ico" />
     <Content Include="App.ico" />
   </ItemGroup>
   <ItemGroup>

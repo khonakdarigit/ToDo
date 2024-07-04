@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_02B0CD4BAD0D7DA61C41A429C9A94075"
+        "OwnerKey" = "8:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_059F14605BB14D71B2A257F4C9C91EC9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_396EC4C2A35A4A4CC47ED36CC55056AA"
         "OwnerKey" = "8:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
         "MsmSig" = "8:_UNDEFINED"
@@ -27,13 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7395F81DE73F49B3B78F977F4A51B3C8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8D0DDB43D32C751F3F334238A9C4AF91"
+        "MsmKey" = "8:_4ACB7A19B8A389D25C23D7F9B447916B"
         "OwnerKey" = "8:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,12 +51,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BEF4F9F384D8E0F2D69BAF348EF7C144"
-        "OwnerKey" = "8:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,25 +58,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8D0DDB43D32C751F3F334238A9C4AF91"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BEF4F9F384D8E0F2D69BAF348EF7C144"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_96F407EE8B10B6CA24AA76A5D5251D85"
+        "OwnerKey" = "8:_4ACB7A19B8A389D25C23D7F9B447916B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_396EC4C2A35A4A4CC47ED36CC55056AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_02B0CD4BAD0D7DA61C41A429C9A94075"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_96F407EE8B10B6CA24AA76A5D5251D85"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -174,6 +174,57 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_02B0CD4BAD0D7DA61C41A429C9A94075"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_02B0CD4BAD0D7DA61C41A429C9A94075"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_1245FA03101844EB99C08D03AEFD27C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_059F14605BB14D71B2A257F4C9C91EC9"
+            {
+            "SourcePath" = "8:..\\ToDo.Winform\\128_Tasky.ico"
+            "TargetName" = "8:128_Tasky.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_1245FA03101844EB99C08D03AEFD27C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_396EC4C2A35A4A4CC47ED36CC55056AA"
             {
             "AssemblyRegister" = "3:1"
@@ -205,34 +256,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7395F81DE73F49B3B78F977F4A51B3C8"
-            {
-            "SourcePath" = "8:C:\\Users\\Mohammad Hosein\\Downloads\\128_Tasky.ico"
-            "TargetName" = "8:128_Tasky.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_1245FA03101844EB99C08D03AEFD27C1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8D0DDB43D32C751F3F334238A9C4AF91"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4ACB7A19B8A389D25C23D7F9B447916B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Tasky.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8D0DDB43D32C751F3F334238A9C4AF91"
+                    "_4ACB7A19B8A389D25C23D7F9B447916B"
                     {
                     "Name" = "8:Tasky.Models.dll"
                     "Attributes" = "3:512"
@@ -270,37 +301,6 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_1245FA03101844EB99C08D03AEFD27C1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BEF4F9F384D8E0F2D69BAF348EF7C144"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_BEF4F9F384D8E0F2D69BAF348EF7C144"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_1245FA03101844EB99C08D03AEFD27C1"
@@ -375,7 +375,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tasky"
         "ProductCode" = "8:{FF4F3D11-4501-42AE-BC68-A686E4E85680}"
-        "PackageCode" = "8:{8AEA690D-F6E4-4C73-BA12-78473270FC94}"
+        "PackageCode" = "8:{18EA9E7A-FB0C-4CFF-A4B0-D4F16716B83A}"
         "UpgradeCode" = "8:{75C9B594-2E26-4FF2-BAB3-35523EFB9E54}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -506,7 +506,7 @@
             "Target" = "8:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
             "Folder" = "8:_FC86B2F2045A42EF8A70D902786F7372"
             "WorkingFolder" = "8:_1245FA03101844EB99C08D03AEFD27C1"
-            "Icon" = "8:_7395F81DE73F49B3B78F977F4A51B3C8"
+            "Icon" = "8:_059F14605BB14D71B2A257F4C9C91EC9"
             "Feature" = "8:"
             }
         }
@@ -910,7 +910,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3D6D6EBC20FA4F8A9B9BBCCE498B9D54"
             {
-            "SourcePath" = "8:..\\ToDo.Winform\\obj\\Release\\ToDo.Winform.exe"
+            "SourcePath" = "8:..\\ToDo.Winform\\obj\\Debug\\ToDo.Winform.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_1245FA03101844EB99C08D03AEFD27C1"

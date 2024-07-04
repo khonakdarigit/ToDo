@@ -38,8 +38,6 @@
             this.menuStripTasky = new System.Windows.Forms.MenuStrip();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCompletedTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_MyTask = new System.Windows.Forms.Label();
             this.btn_NewTask = new System.Windows.Forms.Button();
             this.lbl_TaskLogs = new System.Windows.Forms.Label();
@@ -94,8 +92,7 @@
             // menuStripTasky
             // 
             this.menuStripTasky.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem,
-            this.userInfoToolStripMenuItem});
+            this.viewToolStripMenuItem});
             this.menuStripTasky.Location = new System.Drawing.Point(0, 0);
             this.menuStripTasky.Name = "menuStripTasky";
             this.menuStripTasky.Size = new System.Drawing.Size(991, 24);
@@ -121,20 +118,6 @@
             this.showCompletedTaskToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.showCompletedTaskToolStripMenuItem.Text = "Show Completed Task";
             this.showCompletedTaskToolStripMenuItem.CheckedChanged += new System.EventHandler(this.showCompletedTaskToolStripMenuItem_CheckedChanged);
-            // 
-            // userInfoToolStripMenuItem
-            // 
-            this.userInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loginInformationToolStripMenuItem});
-            this.userInfoToolStripMenuItem.Name = "userInfoToolStripMenuItem";
-            this.userInfoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.userInfoToolStripMenuItem.Text = "User Info";
-            // 
-            // loginInformationToolStripMenuItem
-            // 
-            this.loginInformationToolStripMenuItem.Name = "loginInformationToolStripMenuItem";
-            this.loginInformationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.loginInformationToolStripMenuItem.Text = "Login Information";
             // 
             // lbl_MyTask
             // 
@@ -354,7 +337,6 @@
             this.Controls.Add(this.menuStripTasky);
             this.Controls.Add(this.btn_NewTask);
             this.Controls.Add(this.lbl_MyTask);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStripTasky;
             this.Name = "frm_Main";
             this.Load += new System.EventHandler(this.frm_Main_Load);
@@ -379,8 +361,6 @@
         private System.Windows.Forms.MenuStrip menuStripTasky;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showCompletedTaskToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userInfoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginInformationToolStripMenuItem;
         private System.Windows.Forms.Label lbl_MyTask;
         private System.Windows.Forms.Button btn_NewTask;
         private System.Windows.Forms.Label lbl_TaskLogs;
