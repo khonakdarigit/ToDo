@@ -1,10 +1,10 @@
 # ToDo
 
-WCF service for backend
-MVC Web Application for get setup file and get product key
-Winform Application for using ToDo App (Tasky)
+WCF service for backend__
+MVC Web Application for get setup file and get product key__
+Winform Application for using ToDo App (Tasky)__
 
-For Create DataBase
+For Create DataBase : 
 ``` sql
 
 -- --------------------------------------------------
